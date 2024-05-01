@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=8 format=3 uid="uid://dxaw8gquklyui"]
+
+[ext_resource type="PackedScene" uid="uid://syki6k0e6aac" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_TextBubble/text_bubble_base.tscn" id="1_i4xhk"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="2_ktyj8"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="3_udjre"]
+[ext_resource type="PackedScene" uid="uid://d2it0xiap3gnt" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.tscn" id="4_u2pk4"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="5_puko6"]
+
+[sub_resource type="Resource" id="Resource_yp4j3"]
+script = ExtResource("3_udjre")
+scene = ExtResource("2_ktyj8")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_xem6d"]
+script = ExtResource("3_udjre")
+scene = ExtResource("4_u2pk4")
+overrides = {
+"box_modulate_by_character_color": "true",
+"name_label_box_modulate": "Color(0.145437, 0.121148, 0.151042, 1)",
+"name_label_font": "\"res://gfx/good timing bd.otf\"",
+"name_label_font_size": "20.0",
+"normal_font": "\"res://gfx/good timing bd.otf\"",
+"text_max_width": "500.0",
+"text_size": "25.0"
+}
+
+[resource]
+script = ExtResource("5_puko6")
+name = "default"
+base_scene = ExtResource("1_i4xhk")
+base_overrides = {}
+layers = Array[ExtResource("3_udjre")]([SubResource("Resource_yp4j3"), SubResource("Resource_xem6d")])
+metadata/_latest_layer = 1
