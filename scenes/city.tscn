@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmh27tpv6nbw5"]
+[gd_scene load_steps=8 format=3 uid="uid://bmh27tpv6nbw5"]
 
 [ext_resource type="Texture2D" uid="uid://pm0wi7frk72m" path="res://gfx/town.png" id="1_gtvfs"]
 [ext_resource type="PackedScene" uid="uid://cxc0s5u6ncrqm" path="res://scenes/player.tscn" id="2_xcj42"]
@@ -9,12 +9,24 @@ resource_name = "1st city"
 script/source = "extends Node2D
 
 func _ready():
+	Dialogic.VAR.movement = false
 	var layout = Dialogic.start(\"Player s1\")
 	layout.register_character(load(\"res://character/John Woodsmith.dch\"),$player)
+	preload(\"res://scenes/houses/grandpa_house.tscn\")
+
+	
+	
+
+
 
 
 func _on_town_theme_finished():
 	$\"town theme\".play()
+
+
+func _on_area_2d_body_entered(body):
+	if body == $player:
+		get_tree().change_scene_to_file(\"res://scenes/houses/grandpa_house.tscn\")
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yj7w3"]
@@ -369,6 +381,10 @@ texture = ExtResource("1_gtvfs")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yj7w3")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_v3o5f"]
+a = Vector2(3.51624, -65.1772)
+b = Vector2(3.51624, 10.8228)
+
 [node name="city" type="Node2D"]
 y_sort_enabled = true
 script = SubResource("GDScript_l4jak")
@@ -402,4 +418,12 @@ stream = ExtResource("3_8331t")
 volume_db = -18.494
 autoplay = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1244.82, 334.484)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_v3o5f")
+
 [connection signal="finished" from="town theme" to="." method="_on_town_theme_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

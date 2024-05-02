@@ -2,16 +2,15 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 "_translation_id": "",
-"color": Color(0.958333, 0.651367, 0.344401, 1),
+"color": Color(0.994792, 0.207248, 0.207248, 1),
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "default"
+"style": ""
 },
 "default_portrait": "",
-"description": "The Player
-",
-"display_name": "John Woodsmith",
+"description": "john's grandfather",
+"display_name": "grandpa",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

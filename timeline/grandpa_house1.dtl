@@ -1,0 +1,8 @@
+join grandpa 1
+join grandpa 1
+grandpa: What are you up to John?
+"John Woodsmith": I am going to play for a bit longer today.
+grandpa: i see, have a good day
+"John Woodsmith": thankyou, grandpa
+set {movement} = true
+[end_timeline]

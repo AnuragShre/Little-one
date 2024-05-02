@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Young Birdie"
-run/main_scene="res://scenes/city.tscn"
+run/main_scene="res://scenes/houses/grandpa_house.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -25,15 +25,38 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"John Woodsmith": "res://character/John Woodsmith.dch"
+"John Woodsmith": "res://character/John Woodsmith.dch",
+"grandpa": "res://character/grandpa.dch"
 }
 directories/dtl_directory={
-"Player s1": "res://timeline/Player s1.dtl"
+"Player s1": "res://timeline/Player s1.dtl",
+"grandpa_house1": "res://timeline/grandpa_house1.dtl",
+"grandpa_house1exit": "res://timeline/grandpa_house1exit.dtl"
 }
 layout/style_list=["res://styles dialogue/default.tres"]
 layout/default_style="res://styles dialogue/default.tres"
 glossary/default_case_sensitive=true
-variables={}
+variables={
+"movement": true,
+"pa_permission": false
+}
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+text/autopauses={}
 
 [display]
 
