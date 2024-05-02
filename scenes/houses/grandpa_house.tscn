@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn7w33y1pjt3f"]
+[gd_scene load_steps=12 format=3 uid="uid://bn7w33y1pjt3f"]
 
 [ext_resource type="Texture2D" uid="uid://bh7n5iyfyfr2j" path="res://gfx/urban.png" id="1_n3r30"]
 [ext_resource type="Texture2D" uid="uid://pm0wi7frk72m" path="res://gfx/town.png" id="2_3vf7m"]
 [ext_resource type="PackedScene" uid="uid://cxc0s5u6ncrqm" path="res://scenes/player.tscn" id="3_6s0mk"]
+[ext_resource type="AudioStream" uid="uid://juaseubljyli" path="res://TownTheme.mp3" id="4_2tx8h"]
 
 [sub_resource type="GDScript" id="GDScript_xssqb"]
 resource_name = "grandpahouse"
@@ -32,6 +33,11 @@ func _on_area_2d_body_exited(body):
 func _on_exit_body_entered(body):
 	if body == $player:
 		get_tree().change_scene_to_file(\"res://scenes/city.tscn\")
+
+
+
+func _on_town_theme_finished():
+	$\"town theme\".play()
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bji8"]
@@ -1986,6 +1992,12 @@ position = Vector2(968.117, 1079.91)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
 shape = SubResource("RectangleShape2D_lvlxr")
 
+[node name="town theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2tx8h")
+volume_db = -18.494
+autoplay = true
+
 [connection signal="body_entered" from="grandpa/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="grandpa/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
+[connection signal="finished" from="town theme" to="." method="_on_town_theme_finished"]
