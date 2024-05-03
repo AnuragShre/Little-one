@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmh27tpv6nbw5"]
+[gd_scene load_steps=9 format=3 uid="uid://bmh27tpv6nbw5"]
 
 [ext_resource type="Texture2D" uid="uid://pm0wi7frk72m" path="res://gfx/town.png" id="1_gtvfs"]
 [ext_resource type="PackedScene" uid="uid://cxc0s5u6ncrqm" path="res://scenes/player.tscn" id="2_xcj42"]
@@ -12,7 +12,7 @@ func _ready():
 	Dialogic.VAR.movement = false
 	var layout = Dialogic.start(\"Player s1\")
 	layout.register_character(load(\"res://character/John Woodsmith.dch\"),$player)
-	preload(\"res://scenes/houses/grandpa_house.tscn\")
+	
 
 	
 	
@@ -25,8 +25,14 @@ func _on_town_theme_finished():
 
 
 func _on_area_2d_body_entered(body):
+	
 	if body == $player:
 		get_tree().change_scene_to_file(\"res://scenes/houses/grandpa_house.tscn\")
+
+
+func _on_to_forest_body_entered(body):
+	if body == $player and Dialogic.VAR.pa_permission:
+		get_tree().change_scene_to_file(\"res://scenes/forest.tscn\")
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yj7w3"]
@@ -385,6 +391,9 @@ sources/0 = SubResource("TileSetAtlasSource_yj7w3")
 a = Vector2(3.51624, -65.1772)
 b = Vector2(3.51624, 10.8228)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6msw"]
+radius = 92.943
+
 [node name="city" type="Node2D"]
 y_sort_enabled = true
 script = SubResource("GDScript_l4jak")
@@ -409,7 +418,6 @@ position = Vector2(1155, 380)
 metadata/_edit_group_ = true
 
 [node name="Camera2D2" type="Camera2D" parent="player"]
-zoom = Vector2(2, 2)
 limit_smoothed = true
 position_smoothing_enabled = true
 
@@ -418,12 +426,19 @@ stream = ExtResource("3_8331t")
 volume_db = -18.494
 autoplay = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="house" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house"]
 position = Vector2(1244.82, 334.484)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_v3o5f")
 
+[node name="to forest" type="Area2D" parent="."]
+position = Vector2(1927.8, -16.395)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to forest"]
+shape = SubResource("CircleShape2D_l6msw")
+
 [connection signal="finished" from="town theme" to="." method="_on_town_theme_finished"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="house" to="." method="_on_area_2d_body_entered" flags=3]
+[connection signal="body_entered" from="to forest" to="." method="_on_to_forest_body_entered" flags=3]

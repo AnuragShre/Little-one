@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://character/john.png"
 
 [autoload]
 
@@ -29,6 +29,7 @@ directories/dch_directory={
 "grandpa": "res://character/grandpa.dch"
 }
 directories/dtl_directory={
+"Lost": "res://timeline/Lost.dtl",
 "Player s1": "res://timeline/Player s1.dtl",
 "grandpa_house1": "res://timeline/grandpa_house1.dtl",
 "grandpa_house1exit": "res://timeline/grandpa_house1exit.dtl"

@@ -9,17 +9,22 @@
 resource_name = "grandpahouse"
 script/source = "extends Node2D
 
+var notdone #talk with grandpa
+
 func _ready():
 	Dialogic.VAR.movement = true
-	preload(\"res://scenes/city.tscn\")
+	notdone = true
+	
 
 
 func _on_area_2d_body_entered(body):
-	if body == $player:
+	
+	if body == $player and notdone:
 		Dialogic.VAR.movement = false
 		var layout = Dialogic.start(\"grandpa_house1\")
 		layout.register_character(load(\"res://character/John Woodsmith.dch\"),$player)
 		layout.register_character(load(\"res://character/grandpa.dch\"),$grandpa/StaticBody2D/CollisionShape2D)
+		notdone = false
 
 
 func _on_area_2d_body_exited(body):
@@ -1998,6 +2003,6 @@ volume_db = -18.494
 autoplay = true
 
 [connection signal="body_entered" from="grandpa/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="grandpa/Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_exited" from="grandpa/Area2D" to="." method="_on_area_2d_body_exited" flags=6]
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered" flags=3]
 [connection signal="finished" from="town theme" to="." method="_on_town_theme_finished"]
