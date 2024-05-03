@@ -4,8 +4,8 @@
 
 # Screenshots
 
-![screenshot 1](/home/anurag/Documents/GitHub/Young-Birdie/screenshots/1.png)
+![](https://github.com/AnuragShre/Young-Birdie/blob/main/screenshots/1.png)
 
-![](/home/anurag/Documents/GitHub/Young-Birdie/screenshots/2.png)
+![](https://github.com/AnuragShre/Young-Birdie/blob/main/screenshots/2.png)
 
-![](/home/anurag/Documents/GitHub/Young-Birdie/screenshots/3.png)
+![](https://github.com/AnuragShre/Young-Birdie/blob/main/screenshots/3.png)
