@@ -1,7 +1,9 @@
-join "John Woodsmith" 1 [animation="Bounce In"]
-"John Woodsmith" (profile): Grandpa told me city is a very cool place, I am old enough I should go there.
-"John Woodsmith" (profile): But he also said never to go out in the forest in the north-east...
-"John Woodsmith": .....
-"John Woodsmith" (profile): .. lets go I am old enough for this now.
-set {movement} = true
+if {town monologued} == false:
+	join "John Woodsmith" 1 [animation="Bounce In"]
+	"John Woodsmith" (profile): Grandpa told me forest is a very cool place, I am old enough I should go there.
+	"John Woodsmith" (profile): But he also said never to go out in the north-east...
+	"John Woodsmith": .....
+	"John Woodsmith" (profile): .. lets go I am old enough for this now.
+	set {movement} = true
+	set {town monologued} = true
 [end_timeline]

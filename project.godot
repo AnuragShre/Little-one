@@ -26,20 +26,26 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "John Woodsmith": "res://character/John Woodsmith.dch",
-"grandpa": "res://character/grandpa.dch"
+"Unknown": "res://character/Unknown.dch",
+"grandpa": "res://character/grandpa.dch",
+"mom": "res://character/mom.dch"
 }
 directories/dtl_directory={
 "Lost": "res://timeline/Lost.dtl",
 "Player s1": "res://timeline/Player s1.dtl",
 "grandpa_house1": "res://timeline/grandpa_house1.dtl",
-"grandpa_house1exit": "res://timeline/grandpa_house1exit.dtl"
+"grandpa_house1exit": "res://timeline/grandpa_house1exit.dtl",
+"mom1": "res://timeline/mom1.dtl",
+"pa_met_mom": "res://timeline/pa_met_mom.dtl"
 }
 layout/style_list=["res://styles dialogue/default.tres"]
 layout/default_style="res://styles dialogue/default.tres"
 glossary/default_case_sensitive=true
 variables={
+"met_mom": false,
 "movement": true,
-"pa_permission": false
+"pa_permission": false,
+"town monologued": false
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

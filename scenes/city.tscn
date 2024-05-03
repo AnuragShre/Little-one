@@ -9,10 +9,11 @@ resource_name = "1st city"
 script/source = "extends Node2D
 
 func _ready():
-	Dialogic.VAR.movement = false
-	var layout = Dialogic.start(\"Player s1\")
-	layout.register_character(load(\"res://character/John Woodsmith.dch\"),$player)
-	
+	if  !Dialogic.VAR.met_mom and Dialogic.VAR.pa_permission:
+		Dialogic.VAR.movement = false
+		var layout = Dialogic.start(\"Player s1\")
+		layout.register_character(load(\"res://character/John Woodsmith.dch\"),$player)
+		
 
 	
 	
@@ -33,6 +34,8 @@ func _on_area_2d_body_entered(body):
 func _on_to_forest_body_entered(body):
 	if body == $player and Dialogic.VAR.pa_permission:
 		get_tree().change_scene_to_file(\"res://scenes/forest.tscn\")
+		Dialogic.VAR.pa_permission=false
+		
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yj7w3"]

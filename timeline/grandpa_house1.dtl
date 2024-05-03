@@ -1,3 +1,4 @@
+set {pa_permission} = false
 join grandpa 1
 join grandpa 1
 grandpa: What are you up to John?

@@ -1,0 +1,8 @@
+Unknown: John why are you here?
+"John Woodsmith": Who are you? How do you know my name?
+mom: I am your mother.
+"John Woodsmith": What?
+mom: Theres no time to explain you need to go back
+set {pa_permission} = true
+set {met_mom} = true
+[end_timeline]
