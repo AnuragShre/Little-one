@@ -2003,7 +2003,7 @@ shape = SubResource("RectangleShape2D_lvlxr")
 
 [node name="town theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2tx8h")
-volume_db = -18.494
+volume_db = 1.506
 autoplay = true
 
 [connection signal="body_entered" from="grandpa/Area2D" to="." method="_on_area_2d_body_entered"]

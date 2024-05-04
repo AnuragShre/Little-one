@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqwc7svafv2nb"]
+[gd_scene load_steps=9 format=3 uid="uid://dqwc7svafv2nb"]
 
 [ext_resource type="Texture2D" uid="uid://pm0wi7frk72m" path="res://gfx/town.png" id="1_45h1v"]
 [ext_resource type="PackedScene" uid="uid://cxc0s5u6ncrqm" path="res://scenes/player.tscn" id="2_cgwcx"]
+[ext_resource type="AudioStream" uid="uid://devwk2nuofoov" path="res://battleThemeA.mp3" id="3_trqw7"]
 
 [sub_resource type="GDScript" id="GDScript_7dxfs"]
 script/source = "extends Node2D
@@ -16,6 +17,10 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body == $player:
 		get_tree().change_scene_to_file(\"res://scenes/dungeon.tscn\")
+
+
+func _on_town_theme_finished():
+	$\"town theme\".play()
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_li1h2"]
@@ -236,4 +241,10 @@ position = Vector2(1862.43, 1261.29)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lvt6p")
 
+[node name="town theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_trqw7")
+volume_db = 8.0
+autoplay = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=3]
+[connection signal="finished" from="town theme" to="." method="_on_town_theme_finished"]

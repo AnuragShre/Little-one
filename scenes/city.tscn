@@ -426,7 +426,7 @@ position_smoothing_enabled = true
 
 [node name="town theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_8331t")
-volume_db = -18.494
+volume_db = 1.706
 autoplay = true
 
 [node name="house" type="Area2D" parent="."]
