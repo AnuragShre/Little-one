@@ -21,6 +21,7 @@ config/icon="res://character/john.png"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+tra="*res://scenes/features/trans.tscn"
 
 [dialogic]
 

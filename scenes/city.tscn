@@ -28,12 +28,12 @@ func _on_town_theme_finished():
 func _on_area_2d_body_entered(body):
 	
 	if body == $player:
-		get_tree().change_scene_to_file(\"res://scenes/houses/grandpa_house.tscn\")
+		tra.change(\"res://scenes/houses/grandpa_house.tscn\")
 
 
 func _on_to_forest_body_entered(body):
 	if body == $player and Dialogic.VAR.pa_permission:
-		get_tree().change_scene_to_file(\"res://scenes/forest.tscn\")
+		tra.change(\"res://scenes/forest.tscn\")
 		Dialogic.VAR.pa_permission=false
 		
 "
